@@ -1,0 +1,18 @@
+#navigation{
+	
+	width: 100%px;
+	height: 50px;
+	border:  thin  1 px;
+	border-color: #0080ff;
+	background:#31496F; 	
+}
+
+
+#loginame{
+	font-size: 25px;
+	font-family: 微软雅黑,宋体;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	
+	
+}

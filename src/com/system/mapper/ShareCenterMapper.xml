@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.system.mapper.ShareCenterMapper" >
+
+ <resultMap type="ShareCenter" id="ShareCenterMap">
+ 
+    <id column="id" property="id"/>
+     
+     <result  column="user_id"   property="userid" />
+     <result  column="s_long"    property="lon" />   
+     <result  column="s_lat"  property="lat"  />      
+     <result  column="s_address"  property="address"  />      
+     <result  column="s_date"  property="sharedate"  />      
+     <result  column="s_content"  property="content" />      
+     <result  column="s_pic_path"  property="picpath" />      
+     <result  column="user_name"   property="username" jdbcType="VARCHAR"/>
+   </resultMap>
+   
+   
+   <select id="findallShare" resultMap="ShareCenterMap">
+      select   f_share. *,f_user.user_name from f_share,f_user
+        where f_share.user_id=f_user.id
+   </select>
+   
+   
+   
+   
+   <!-- 写一个根据好友进行查询的方法 -->
+   
+   <select id="findfribyId"  resultMap="ShareCenterMap">
+      select   f_share. *,f_user.user_name from f_share,f_user
+        where f_share.user_id=#{userid}
+        and
+        f_share.user_id=f_user.id
+        
+          
+   
+   </select>
+   
+   
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!-- 设置别名 -->
+<typeAliases>
+
+    <typeAlias type="com.system.entity.User"            alias="User" />
+    <typeAlias type="com.system.entity.ShareContent"    alias="ShareContent" />
+    <typeAlias type="com.system.entity.Dream"           alias="Dream" />
+    <typeAlias type="com.system.entity.FriendShip"      alias="FriendShip" />
+    <typeAlias type="com.system.entity.Message"         alias="Message" /> 
+    <typeAlias type="com.system.entity.Messageinfo"     alias="Messageinfo" />
+    <typeAlias type="com.system.entity.Home"            alias="Home" />
+    <typeAlias type="com.system.entity.ShareCenter"     alias="ShareCenter" />
+     
+</typeAliases>
+
+
+</configuration>

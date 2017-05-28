@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.system.mapper.MessageinfoMapper">
+
+  <resultMap type="Messageinfo" id="mesinfoMap">
+  
+     <id column="id" property="id"/>
+    
+     <result  column="from_id"         property="formid" />
+     <result  column="to_id"           property="toid"  />   
+     <result  column="m_content"       property="content" /> 
+     <result  column="m_type"          property="type" />
+     <result  column="m_date"          property="senddate" />
+       
+     <result  column="user_name"          property="username" />
+     <result  column="m_type_desc"          property="typedesc" />
+         
+     
+  </resultMap>
+  
+    
+    <!-- 存在toid等于userid等于自己的 消息 -->
+    
+    <select id="findallMess" resultMap="mesinfoMap" resultType="Messageinfo">
+    
+      select   f_message.id,f_message.from_id, f_message.m_content, f_message.m_date,f_user.user_name, f_message_type.m_type_desc
+       from f_message 
+       left  join f_user  
+       on
+       f_message.from_id=f_user.id
+       left join f_message_type 
+        on
+       f_message.m_type=f_message_type.m_type
+       where
+       f_message.to_id=#{userid}  
+          
+    </select> 
+    
+   
+ 
+</mapper>

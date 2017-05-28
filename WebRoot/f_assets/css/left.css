@@ -1,0 +1,73 @@
+#leftbar{
+	
+	width: 143px;
+	height:600px;
+	border:5px solid  #31496F;
+	background-color: #31496F; 
+	float: left;	
+}
+
+
+#user_pic_loginname{
+	
+	width: 143px;
+	height: 100px ;
+
+}
+
+.function_ul{
+	
+	width: 143px;
+	height: 700px ;
+/*	 border: 1px solid  white ;*/
+	 margin: 0px;
+	 padding: 0px
+}
+
+
+.function_ul_li{
+	list-style: none;
+	 height: 40px;
+	 width:143px ;
+	/* border: 1px solid  white;*/
+	  padding: 0px;
+	  margin: 0px;
+	  color: white;
+	  cursor: pointer;
+	  text-align: center;
+}
+
+.function_ul_li_ul{
+	
+	width: 143px;
+	height: 90px ; 
+	/*border: 1px solid  white ;*/
+	 margin: 0px;
+	 padding: 0px;
+	 display: none; 
+	
+	
+}
+
+.function_ul_li_ul_li{
+	list-style: none;
+	 height: 30px;
+	 width:143px ;
+/*	 border: 1px solid  white;*/
+	  padding: 0px;
+	  margin: 0px;
+	  color: white;
+	  cursor: pointer;
+	  text-align: center;
+}
+                        
+#friend1 {
+	display: none;
+}
+
+
+#friend1 :hover{
+
+	display: block;
+}
+

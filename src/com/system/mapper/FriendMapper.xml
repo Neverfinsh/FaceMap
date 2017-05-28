@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.system.mapper.FriendMapper" >
+
+ <resultMap type="FriendShip" id="FriendShipMap">
+ 
+    <id column="id" property="id"/>
+    
+     <result  column="from_id"   property="fromId" />
+     <result  column="to_id"   property="toId"  />   
+     <result  column="ship_status"       property="shipstatus" />      
+     
+   </resultMap>
+   
+   <insert id="addfriend" parameterType="FriendShip" >
+       insert into f_friend_friend(from_id,to_id,ship_status) values 
+             (#{fromId},#{toId},#{shipstatus})
+   </insert>
+   
+   
+   <select id="findFriendById"  resultType="java.lang.Integer">
+      select  distinct  from_id  from f_friend_friend
+      where 
+      ship_status=1
+      and
+      to_id=#{userid}
+   </select>
+   
+   
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.system.mapper.ShareContentMapper"> <!--mapper的表示 -->
+
+<!-- 一一对应的关系 -->
+  <resultMap type="ShareContent" id="shareMap">
+  
+     <id column="id" property="id"/>
+     
+     <result  column="user_id"   property="userid" />
+     <result  column="s_long"    property="lon" />   
+     <result  column="s_lat"  property="lat"  />      
+     <result  column="s_address"  property="address"  />      
+     <result  column="s_date"  property="sharedate"  />      
+     <result  column="s_content"  property="content" />      
+     <result  column="s_pic_path"  property="picpath" />      
+   </resultMap>
+   
+   <!-- 插入一条记录 -->
+    <insert id="addShareContent" parameterType="ShareContent"  >
+      insert into f_share(user_id,s_long,s_lat,s_address,s_date,s_content,s_pic_path)
+       values(#{userid},#{lon},#{lat},#{address},#{sharedate},#{content},#{picpath})
+    </insert>
+   
+   <!-- 查说说 -->
+   <select id="findById"  parameterType="Integer" resultType="ShareContent" resultMap="shareMap">
+         select * from f_share where user_id=#{userid}
+   </select>
+   
+   
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.system.mapper.UserMapper"> <!--mapper的表示 -->
+
+<!-- 一一对应的关系 -->
+  <resultMap type="User" id="userMap">
+  
+    <id column="id" property="id"/>
+    
+     <result  column="user_name"   property="username" jdbcType="VARCHAR"/>
+     <result  column="user_pwd"    property="userpwd"  jdbcType="VARCHAR"/>   
+     <result  column="user_login_name"  property="loginame"  jdbcType="VARCHAR"/>      
+     <result  column="user_email"  property="useremail"  jdbcType="VARCHAR"/>      
+     <result  column="user_address"  property="useraddress"  jdbcType="VARCHAR"/>      
+     <result  column="user_status"  property="userstatus" />      
+   
+   </resultMap>
+   
+   
+   <select id="findAllUser"  resultType="User" resultMap="userMap">
+	   select * from  f_user
+	</select>
+	
+	
+	
+	<!-- 用户注册的功能 -->
+	
+	<insert id="addUser" parameterType="User" >
+	     insert into f_user (user_name,user_pwd,user_login_name,user_email,user_address,user_status)
+	        values(#{username},#{userpwd},#{loginame},#{useremail},#{useraddress},#{userstatus})
+	</insert>
+	
+	<!--用户登录查询-->
+	
+	<select id="findByName" parameterType="String"  resultType="User" resultMap="userMap">
+	     select * from f_user where f_user.user_name=#{username}
+	</select>
+
+	
+</mapper>

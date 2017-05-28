@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.system.mapper.DreamMapper"> <!--mapper的表示 -->
+
+<!-- 一一对应的关系 -->
+  <resultMap type="Dream" id="dreamMap">
+  
+    <id column="id" property="id"/>
+    
+     <result  column="d_content"   property="content" jdbcType="VARCHAR"/>
+     <result  column="d_address"   property="address"  jdbcType="VARCHAR"/>   
+     <result  column="d_lat"       property="lat"  jdbcType="VARCHAR"/>      
+     <result  column="d_lon"       property="lon"  jdbcType="VARCHAR"/>      
+     <result  column="d_date"      property="sharedate"  />      
+     <result  column="d_userid"    property="userid" />      
+     <result  column="d_pic"       property="picpath" />      
+   </resultMap>
+   
+   
+ 
+	<!-- 用户注册的功能 -->
+	<insert id="addDream" parameterType="Dream" >
+	     insert into f_dream (d_content,d_address,d_lat,d_lon,d_date,d_userid,d_pic)
+	       values(#{content},#{address},#{lat},#{lon},#{sharedate},#{userid},#{picpath})
+	</insert>
+
+	
+	<select id="findById"  resultMap="dreamMap" parameterType="Dream">
+	     select * from f_dream where d_userid=#{userid}
+	</select>
+	
+	
+	
+</mapper>

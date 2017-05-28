@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.system.mapper.MessageMapper">
+
+  <resultMap type="Message" id="mesMap">
+  
+     <id column="id" property="id"/>
+    
+     <result  column="from_id"         property="formid" />
+     <result  column="to_id"           property="toid"  />   
+     <result  column="m_content"       property="content" /> 
+     <result  column="m_type"          property="type" />
+     <result  column="m_date"          property="senddate" />
+  
+   
+  </resultMap>
+  
+    <insert id="addMess" parameterType="Message" > 
+    
+    insert into f_message(from_id,to_id,m_content,m_type,m_date)
+      values(#{formid},#{toid},#{content},#{type},#{senddate})
+    </insert>
+    
+    
+    
+     <delete id="deleteMess">
+         delete  from  f_message where id=#{messageid}
+    </delete>
+    
+    
+    
+</mapper>
